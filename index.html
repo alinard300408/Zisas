@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Red Social IPN</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <header>
+
+    <div class="logo">Red Social IPN</div>
+
+    <input type="text" placeholder="Buscar en la red IPN...">
+
+    <nav>
+
+      <a href="#">Inicio</a>
+
+      <a href="#">Perfil</a>
+
+      <a href="#">Salir</a>
+
+    </nav>
+
+  </header>
+
+
+
+  <main>
+
+    <aside class="sidebar-left">
+
+      <div class="profile">
+
+        <img src="https://via.placeholder.com/80" alt="Perfil">
+
+        <h3>Carlos Politécnico</h3>
+
+        <p>Ing. en Sistemas</p>
+
+      </div>
+
+      <ul class="menu">
+
+        <li>Amigos</li>
+
+        <li>Eventos</li>
+
+        <li>Cursos</li>
+
+        <li>Grupos</li>
+
+        <li>Biblioteca</li>
+
+      </ul>
+
+      <div class="events">
+
+        <h4>Eventos próximos</h4>
+
+        <div class="event">
+
+          <span class="date red">15 MAY</span>
+
+          <p>Concurso de robótica<br><small>ESIME Zacatenco</small></p>
+
+        </div>
+
+        <div class="event">
+
+          <span class="date blue">3 JUN</span>
+
+          <p>Feria de empleo IPN<br><small>CECyT 9</small></p>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+
+
+    <section class="feed">
+
+      <div class="post-creator">
+
+        <textarea id="postInput" placeholder="¿Qué estás pensando, Carlos?"></textarea>
+
+        <button onclick="publicar()">Publicar</button>
+
+      </div>
+
+      <div id="postContainer">
+
+        <!-- Publicaciones aparecerán aquí -->
+
+      </div>
+
+    </section>
+
+
+
+    <aside class="sidebar-right">
+
+      <h4>Eventos destacados</h4>
+
+      <div class="event">
+
+        <p>Feria de Ciencias 2023<br><small>CINVESTAV</small></p>
+
+      </div>
+
+      <div class="event">
+
+        <p>Conferencia: IA en México<br><small>Auditorio ESCOM</small></p>
+
+      </div>
+
+      <h4>Contactos</h4>
+
+      <ul>
+
+        <li>María López (ESCOM)</li>
+
+        <li>Pedro Sánchez (ESIME)</li>
+
+        <li>Luisa Martínez (CECyT 9)</li>
+
+      </ul>
+
+    </aside>
+
+  </main>
+
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+---
+
+
+
+2. style.css
+
+
+
+body {
+
+  margin: 0;
+
+  font-family: Arial, sans-serif;
+
+  background-color: #f5f6f8;
+
+}
+
+
+
+header {
+
+  background: linear-gradient(to right, #ff6600, #ff3300);
+
+  padding: 10px 20px;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+}
+
+
+
+header input {
+
+  width: 40%;
+
+  padding: 5px;
+
+  border-radius: 5px;
+
+  border: none;
+
+}
+
+
+
+nav a {
+
+  margin-left: 15px;
+
+  color: white;
+
+  text-decoration: none;
+
+}
+
+
+
+main {
+
+  display: flex;
+
+  padding: 20px;
+
+  gap: 20px;
+
+}
+
+
+
+.sidebar-left, .sidebar-right {
+
+  width: 20%;
+
+  background-color: white;
+
+  padding: 15px;
+
+  border-radius: 8px;
+
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+
+}
+
+
+
+.feed {
+
+  width: 60%;
+
+}
+
+
+
+.profile img {
+
+  border-radius: 50%;
+
+}
+
+
+
+.menu {
+
+  list-style: none;
+
+  padding: 0;
+
+}
+
+
+
+.menu li {
+
+  margin: 10px 0;
+
+  cursor: pointer;
+
+}
+
+
+
+.event {
+
+  background-color: #f0f0f0;
+
+  padding: 8px;
+
+  margin-bottom: 10px;
+
+  border-radius: 5px;
+
+}
+
+
+
+.date {
+
+  font-weight: bold;
+
+  display: inline-block;
+
+  width: 50px;
+
+}
+
+
+
+.red {
+
+  color: red;
+
+}
+
+
+
+.blue {
+
+  color: blue;
+
+}
+
+
+
+.post-creator {
+
+  background-color: white;
+
+  padding: 15px;
+
+  margin-bottom: 20px;
+
+  border-radius: 8px;
+
+}
+
+
+
+.post-creator textarea {
+
+  width: 100%;
+
+  height: 60px;
+
+  padding: 10px;
+
+  resize: none;
+
+}
+
+
+
+.post-creator button {
+
+  margin-top: 10px;
+
+  padding: 8px 15px;
+
+  background-color: #ff6600;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+}
+
+
+
+.post {
+
+  background-color: white;
+
+  padding: 15px;
+
+  margin-bottom: 15px;
+
+  border-radius: 8px;
+
+}
+
+
+
+.post .meta {
+
+  font-size: 0.9em;
+
+  color: gray;
+
+}
+
+
+
+
+
+---
+
+
+
+3. script.js
+
+
+
+function publicar() {
+
+  const input = document.getElementById("postInput");
+
+  const container = document.getElementById("postContainer");
+
+
+
+  if (input.value.trim() !== "") {
+
+    const postHTML = `
+
+      <div class="post">
+
+        <strong>Carlos Politécnico</strong>
+
+        <div class="meta">Hace un momento</div>
+
+        <p>${input.value}</p>
+
+        <div class="acciones">
+
+          <button>Me gusta</button>
+
+          <button>Comentar</button>
+
+          <button>Compartir</button>
+
+        </div>
+
+      </div>
+
+    `;
+
+    container.innerHTML = postHTML + container.innerHTML;
+
+    input.value = "";
+
+  } else {
+
+    alert("No puedes publicar un mensaje vacío.");
+
+  }
+
+}
+                              
