@@ -1,1 +1,353 @@
+<!DOCTYPE html>
 
+<html lang=”es”>
+
+<head>
+
+  <meta charset=”UTF-8”>
+
+  <meta name=”viewport” content=”width=device-width, initial-scale=1.0”>
+
+  <title>El Chismógrafo – CET1</title>
+
+  <link rel=”stylesheet” href=”style.css”>
+
+</head>
+
+<body>
+
+  <header>
+
+    <h1>📖 El Chismógrafo – CET1</h1>
+
+    <p>¡El periódico donde el chisme se convierte en historia!</p>
+
+    <nav>
+
+      <button class=”activo”>🔥 Chismes calientes</button>
+
+      <button>👨‍🏫 Profesores</button>
+
+      <button>🥊 Peleas</button>
+
+      <button>💥 Polémicas</button>
+
+      <button>😳 Confesiones</button>
+
+    </nav>
+
+  </header>
+
+
+
+  <section class=”publicar”>
+
+    <h2>🔥 Chismes calientes</h2>
+
+    <input type=”text” placeholder=”Título del chisme”>
+
+    <textarea placeholder=”Escribe tu chisme…”></textarea>
+
+    <button id=”publicar”>📤 Publicar</button>
+
+  </section>
+
+
+
+  <section class=”recientes”>
+
+    <h2>⚡ Chismes Recientes</h2>
+
+    <div class=”filtros”>
+
+      <button class=”activo”>Todos</button>
+
+      <button>🔥 Calientes</button>
+
+      <button>🧑‍🏫 Profes</button>
+
+      <button>🥊 Peleas</button>
+
+      <button>💥 Polémicas</button>
+
+      <button>😳 Confesiones</button>
+
+    </div>
+
+
+
+    <div class=”chisme”>
+
+      <span class=”etiqueta”>🔥 Calientes</span>
+
+      <h3>F7</h3>
+
+      <p>No em</p>
+
+      <div class=”reacciones”>
+
+        <span>👍 0</span>
+
+        <span>💬 0</span>
+
+        <span>🔁 0</span>
+
+      </div>
+
+    </div>
+
+
+
+    <div class=”chisme”>
+
+      <span class=”etiqueta”>🔥 Calientes</span>
+
+      <h3>¡Pareja secreta en 3IM07!</h3>
+
+      <p>Varios testigos reportan que dos compañeros de 3IM07 han estado saliendo en secreto durante meses. ¿Quiénes serán? 👀</p>
+
+      <div class=”reacciones”>
+
+        <span>👍 24</span>
+
+        <span>💬 2</span>
+
+        <span>🔁 5</span>
+
+        <span class=”fecha”>15 may 2023</span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <script src=”script.js”></script>
+
+</body>
+
+</html>
+
+
+
+
+
+Estilos con CSS (style.css)
+
+
+
+Body {
+
+  Font-family: ‘Segoe UI’, sans-serif;
+
+  Background: #e9f5e9;
+
+  Color: #1ª1a1a;
+
+  Margin: 0;
+
+  Padding: 0;
+
+}
+
+
+
+Header {
+
+  Background-color: #146b2b;
+
+  Color: white;
+
+  Padding: 20px;
+
+  Text-align: center;
+
+}
+
+
+
+Nav button {
+
+  Background: #c2f0c2;
+
+  Border: none;
+
+  Margin: 5px;
+
+  Padding: 10px;
+
+  Border-radius: 10px;
+
+  Cursor: pointer;
+
+}
+
+
+
+Nav .activo {
+
+  Background-color: #ff4d4d;
+
+  Color: white;
+
+}
+
+
+
+Section.publicar, section.recientes {
+
+  Margin: 20px;
+
+  Padding: 20px;
+
+  Background: white;
+
+  Border-radius: 12px;
+
+  Box-shadow: 0 0 5px rgba(0,0,0,0.1);
+
+}
+
+
+
+.publicar input, .publicar textarea {
+
+  Width: 100%;
+
+  Padding: 10px;
+
+  Margin: 10px 0;
+
+}
+
+
+
+.publicar button {
+
+  Padding: 10px 20px;
+
+  Background: #146b2b;
+
+  Color: white;
+
+  Border: none;
+
+  Border-radius: 8px;
+
+  Cursor: pointer;
+
+}
+
+
+
+.filtros button {
+
+  Margin: 5px;
+
+  Padding: 5px 10px;
+
+  Border: none;
+
+  Background: #eee;
+
+  Border-radius: 5px;
+
+}
+
+
+
+.chisme {
+
+  Border-top: 1px solid #ddd;
+
+  Padding: 15px 0;
+
+}
+
+
+
+.etiqueta {
+
+  Color: red;
+
+  Font-weight: bold;
+
+}
+
+
+
+.reacciones span {
+
+  Margin-right: 15px;
+
+}
+
+
+
+.fecha {
+
+  Float: right;
+
+  Font-size: 0.8em;
+
+  Color: gray;
+
+}
+
+
+
+
+
+Para que el botón de “Publicar” funcione de forma simulada (no persistente):
+
+
+
+Document.getElementById(‘publicar’).addEventListener(‘click’, function() {
+
+  Const titulo = document.querySelector(‘input’).value;
+
+  Const contenido = document.querySelector(‘textarea’).value;
+
+
+
+  If (titulo && contenido) {
+
+    Const nuevoChisme = document.createElement(‘div’);
+
+    nuevoChisme.className = ‘chisme’;
+
+    nuevoChisme.innerHTML = `
+
+      <span class=”etiqueta”>🔥 Calientes</span>
+
+      <h3>${titulo}</h3>
+
+      <p>${contenido}</p>
+
+      <div class=”reacciones”>
+
+        <span>👍 0</span>
+
+        <span>💬 0</span>
+
+        <span>🔁 0</span>
+
+      </div>
+
+    `;
+
+
+
+    Document.querySelector(‘.recientes’).appendChild(nuevoChisme);
+
+    Document.querySelector(‘input’).value = ‘’;
+
+    Document.querySelector(‘textarea’).value = ‘’;
+
+  } else {
+
+    Alert(‘Por favor, llena todos los campos.’
+
+          
