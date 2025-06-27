@@ -1,452 +1,430 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <title>Red Social IPN</title>
-
-  <link rel="stylesheet" href="style.css">
-
+  <title>Red Social IPN - Comunidad Politécnica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .gradient-bg {
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+    }
+    .post-image {
+      transition: transform 0.3s ease;
+    }
+    .post-image:hover {
+      transform: scale(1.02);
+    }
+    .sidebar {
+      scrollbar-width: thin;
+      scrollbar-color: #f59e0b transparent;
+    }
+    .sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+      background-color: #f59e0b;
+      border-radius: 3px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+  </style>
 </head>
-
-<body>
-
-  <header>
-
-    <div class="logo">Red Social IPN</div>
-
-    <input type="text" placeholder="Buscar en la red IPN...">
-
-    <nav>
-
-      <a href="#">Inicio</a>
-
-      <a href="#">Perfil</a>
-
-      <a href="#">Salir</a>
-
-    </nav>
-
+<body class="bg-gray-100 font-sans">
+  <!-- Header -->
+  <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/IPN_logo.png" alt="IPN" class="h-12 w-12 object-contain">
+        <h1 class="text-2xl font-bold hidden md:block">Red Social IPN</h1>
+      </div>
+      
+      <div class="relative w-full max-w-xl mx-4 hidden md:block">
+        <input type="text" placeholder="Buscar en la red IPN..." 
+               class="w-full py-2 px-4 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+        <i class="fas fa-search absolute right-4 top-3 text-gray-500"></i>
+      </div>
+      
+      <nav class="flex items-center space-x-4">
+        <a href="#" class="hover:bg-yellow-600 px-3 py-1 rounded-lg transition">
+          <i class="fas fa-home text-xl"></i>
+          <span class="hidden md:inline ml-1">Inicio</span>
+        </a>
+        <a href="perfil.html" class="hover:bg-yellow-600 px-3 py-1 rounded-lg transition">
+          <i class="fas fa-user text-xl"></i>
+          <span class="hidden md:inline ml-1">Perfil</span>
+        </a>
+        <a href="login.html" class="hover:bg-yellow-600 px-3 py-1 rounded-lg transition">
+          <i class="fas fa-sign-out-alt text-xl"></i>
+          <span class="hidden md:inline ml-1">Salir</span>
+        </a>
+      </nav>
+    </div>
   </header>
 
-
-
-  <main>
-
-    <aside class="sidebar-left">
-
-      <div class="profile">
-
-        <img src="https://via.placeholder.com/80" alt="Perfil">
-
-        <h3>Carlos Politécnico</h3>
-
-        <p>Ing. en Sistemas</p>
-
-      </div>
-
-      <ul class="menu">
-
-        <li>Amigos</li>
-
-        <li>Eventos</li>
-
-        <li>Cursos</li>
-
-        <li>Grupos</li>
-
-        <li>Biblioteca</li>
-
-      </ul>
-
-      <div class="events">
-
-        <h4>Eventos próximos</h4>
-
-        <div class="event">
-
-          <span class="date red">15 MAY</span>
-
-          <p>Concurso de robótica<br><small>ESIME Zacatenco</small></p>
-
+  <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row">
+    <!-- Sidebar izquierdo -->
+    <aside class="w-full md:w-64 lg:w-72 mb-6 md:mb-0 md:mr-6">
+      <div class="bg-white rounded-xl shadow-md p-4 sticky top-24 sidebar overflow-y-auto max-h-screen">
+        <div class="flex items-center space-x-3 mb-6">
+          <img src="https://i.pravatar.cc/60?img=3" alt="Usuario" class="rounded-full border-2 border-yellow-500">
+          <div>
+            <h3 class="font-bold text-lg">Carlos Politécnico</h3>
+            <p class="text-gray-500 text-sm">Ing. en Sistemas</p>
+          </div>
         </div>
-
-        <div class="event">
-
-          <span class="date blue">3 JUN</span>
-
-          <p>Feria de empleo IPN<br><small>CECyT 9</small></p>
-
+        
+        <div class="space-y-2">
+          <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-yellow-50 transition">
+            <i class="fas fa-user-friends text-yellow-600 w-6 text-center"></i>
+            <span>Amigos</span>
+          </a>
+          <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-yellow-50 transition">
+            <i class="fas fa-calendar-alt text-yellow-600 w-6 text-center"></i>
+            <span>Eventos</span>
+          </a>
+          <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-yellow-50 transition">
+            <i class="fas fa-graduation-cap text-yellow-600 w-6 text-center"></i>
+            <span>Cursos</span>
+          </a>
+          <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-yellow-50 transition">
+            <i class="fas fa-users text-yellow-600 w-6 text-center"></i>
+            <span>Grupos</span>
+          </a>
+          <a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-yellow-50 transition">
+            <i class="fas fa-book text-yellow-600 w-6 text-center"></i>
+            <span>Biblioteca</span>
+          </a>
         </div>
-
+        
+        <div class="mt-6 pt-4 border-t border-gray-200">
+          <h4 class="font-bold mb-3">Eventos próximos</h4>
+          <div class="space-y-3">
+            <div class="flex items-start space-x-2">
+              <div class="bg-red-500 text-white rounded-lg p-2 text-center w-10">
+                <div class="text-xs font-bold">MAY</div>
+                <div class="text-sm">15</div>
+              </div>
+              <div>
+                <p class="font-medium text-sm">Concurso de robótica</p>
+                <p class="text-xs text-gray-500">ESIME Zacatenco</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-2">
+              <div class="bg-blue-500 text-white rounded-lg p-2 text-center w-10">
+                <div class="text-xs font-bold">JUN</div>
+                <div class="text-sm">3</div>
+              </div>
+              <div>
+                <p class="font-medium text-sm">Feria de empleo IPN</p>
+                <p class="text-xs text-gray-500">CECyT 9</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
     </aside>
 
-
-
-    <section class="feed">
-
-      <div class="post-creator">
-
-        <textarea id="postInput" placeholder="¿Qué estás pensando, Carlos?"></textarea>
-
-        <button onclick="publicar()">Publicar</button>
-
-      </div>
-
-      <div id="postContainer">
-
-        <!-- Publicaciones aparecerán aquí -->
-
-      </div>
-
-    </section>
-
-
-
-    <aside class="sidebar-right">
-
-      <h4>Eventos destacados</h4>
-
-      <div class="event">
-
-        <p>Feria de Ciencias 2023<br><small>CINVESTAV</small></p>
-
-      </div>
-
-      <div class="event">
-
-        <p>Conferencia: IA en México<br><small>Auditorio ESCOM</small></p>
-
-      </div>
-
-      <h4>Contactos</h4>
-
-      <ul>
-
-        <li>María López (ESCOM)</li>
-
-        <li>Pedro Sánchez (ESIME)</li>
-
-        <li>Luisa Martínez (CECyT 9)</li>
-
-      </ul>
-
-    </aside>
-
-  </main>
-
-
-
-  <script src="script.js"></script>
-
-</body>
-
-</html>
-
-
-
-
-
----
-
-
-
-2. style.css
-
-
-
-body {
-
-  margin: 0;
-
-  font-family: Arial, sans-serif;
-
-  background-color: #f5f6f8;
-
-}
-
-
-
-header {
-
-  background: linear-gradient(to right, #ff6600, #ff3300);
-
-  padding: 10px 20px;
-
-  color: white;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-}
-
-
-
-header input {
-
-  width: 40%;
-
-  padding: 5px;
-
-  border-radius: 5px;
-
-  border: none;
-
-}
-
-
-
-nav a {
-
-  margin-left: 15px;
-
-  color: white;
-
-  text-decoration: none;
-
-}
-
-
-
-main {
-
-  display: flex;
-
-  padding: 20px;
-
-  gap: 20px;
-
-}
-
-
-
-.sidebar-left, .sidebar-right {
-
-  width: 20%;
-
-  background-color: white;
-
-  padding: 15px;
-
-  border-radius: 8px;
-
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-
-}
-
-
-
-.feed {
-
-  width: 60%;
-
-}
-
-
-
-.profile img {
-
-  border-radius: 50%;
-
-}
-
-
-
-.menu {
-
-  list-style: none;
-
-  padding: 0;
-
-}
-
-
-
-.menu li {
-
-  margin: 10px 0;
-
-  cursor: pointer;
-
-}
-
-
-
-.event {
-
-  background-color: #f0f0f0;
-
-  padding: 8px;
-
-  margin-bottom: 10px;
-
-  border-radius: 5px;
-
-}
-
-
-
-.date {
-
-  font-weight: bold;
-
-  display: inline-block;
-
-  width: 50px;
-
-}
-
-
-
-.red {
-
-  color: red;
-
-}
-
-
-
-.blue {
-
-  color: blue;
-
-}
-
-
-
-.post-creator {
-
-  background-color: white;
-
-  padding: 15px;
-
-  margin-bottom: 20px;
-
-  border-radius: 8px;
-
-}
-
-
-
-.post-creator textarea {
-
-  width: 100%;
-
-  height: 60px;
-
-  padding: 10px;
-
-  resize: none;
-
-}
-
-
-
-.post-creator button {
-
-  margin-top: 10px;
-
-  padding: 8px 15px;
-
-  background-color: #ff6600;
-
-  color: white;
-
-  border: none;
-
-  border-radius: 5px;
-
-  cursor: pointer;
-
-}
-
-
-
-.post {
-
-  background-color: white;
-
-  padding: 15px;
-
-  margin-bottom: 15px;
-
-  border-radius: 8px;
-
-}
-
-
-
-.post .meta {
-
-  font-size: 0.9em;
-
-  color: gray;
-
-}
-
-
-
-
-
----
-
-
-
-3. script.js
-
-
-
-function publicar() {
-
-  const input = document.getElementById("postInput");
-
-  const container = document.getElementById("postContainer");
-
-
-
-  if (input.value.trim() !== "") {
-
-    const postHTML = `
-
-      <div class="post">
-
-        <strong>Carlos Politécnico</strong>
-
-        <div class="meta">Hace un momento</div>
-
-        <p>${input.value}</p>
-
-        <div class="acciones">
-
-          <button>Me gusta</button>
-
-          <button>Comentar</button>
-
-          <button>Compartir</button>
-
+    <!-- Contenido principal -->
+    <main class="flex-1">
+      <!-- Crear publicación -->
+      <section class="bg-white rounded-xl shadow-md p-4 mb-6 fade-in">
+        <div class="flex items-center space-x-3 mb-4">
+          <img src="https://i.pravatar.cc/40?img=3" alt="Usuario" class="rounded-full">
+          <input type="text" placeholder="¿Qué estás pensando, Carlos?" 
+                 class="flex-1 bg-gray-100 rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-yellow-400">
         </div>
+        <div class="flex justify-between border-t border-gray-200 pt-3">
+          <button class="flex items-center space-x-1 text-gray-600 hover:bg-gray-100 px-3 py-1 rounded-lg transition">
+            <i class="fas fa-image text-green-500"></i>
+            <span>Foto</span>
+          </button>
+          <button class="flex items-center space-x-1 text-gray-600 hover:bg-gray-100 px-3 py-1 rounded-lg transition">
+            <i class="fas fa-video text-red-500"></i>
+            <span>Video</span>
+          </button>
+          <button class="flex items-center space-x-1 text-gray-600 hover:bg-gray-100 px-3 py-1 rounded-lg transition">
+            <i class="fas fa-calendar text-yellow-500"></i>
+            <span>Evento</span>
+          </button>
+          <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-1 rounded-lg font-medium transition">
+            Publicar
+          </button>
+        </div>
+      </section>
 
-      </div>
+      <!-- Publicaciones -->
+      <article class="bg-white rounded-xl shadow-md p-4 mb-6 fade-in">
+        <div class="flex items-start justify-between mb-3">
+          <div class="flex items-center space-x-3">
+            <img src="https://i.pravatar.cc/40?img=12" alt="Usuario" class="rounded-full">
+            <div>
+              <h3 class="font-bold">Juan Politécnico</h3>
+              <p class="text-gray-500 text-sm">Hace 2 horas · <i class="fas fa-globe-americas text-gray-400"></i></p>
+            </div>
+          </div>
+          <button class="text-gray-400 hover:text-gray-600">
+            <i class="fas fa-ellipsis-h"></i>
+          </button>
+        </div>
+        
+        <p class="mb-4">¡Vamos con todo al concurso de robótica del IPN! 🤖🎓 #OrgulloPolitécnico #RobóticaIPN</p>
+        
+        <img src="https://www.ipn.mx/assets/files/main/img/conocenos/conocenos-mision.jpg" 
+             alt="Concurso de robótica" 
+             class="w-full h-auto rounded-lg mb-3 post-image cursor-pointer">
+        
+        <div class="flex items-center justify-between text-gray-500 border-t border-b border-gray-200 py-2 mb-3">
+          <div class="flex items-center space-x-1">
+            <div class="flex items-center">
+              <div class="bg-blue-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">
+                <i class="fas fa-thumbs-up"></i>
+              </div>
+              <div class="bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs -ml-1">
+                <i class="fas fa-heart"></i>
+              </div>
+            </div>
+            <span class="text-sm" id="like-count-1">0</span>
+          </div>
+          <div class="text-sm">
+            <span id="comment-count-1">0</span> comentarios
+          </div>
+        </div>
+        
+        <div class="flex justify-between space-x-2">
+          <button onclick="likePost('1')" class="flex-1 flex items-center justify-center space-x-2 text-gray-600 hover:bg-gray-100 py-1 rounded-lg transition">
+            <i class="fas fa-thumbs-up"></i>
+            <span>Me gusta</span>
+          </button>
+          <button onclick="toggleComments('1')" class="flex-1 flex items-center justify-center space-x-2 text-gray-600 hover:bg-gray-100 py-1 rounded-lg transition">
+            <i class="fas fa-comment"></i>
+            <span>Comentar</span>
+          </button>
+          <button class="flex-1 flex items-center justify-center space-x-2 text-gray-600 hover:bg-gray-100 py-1 rounded-lg transition">
+            <i class="fas fa-share"></i>
+            <span>Compartir</span>
+          </button>
+        </div>
+        
+        <div id="comments-1" class="mt-4 hidden">
+          <div class="flex items-center space-x-3 mb-4">
+            <img src="https://i.pravatar.cc/32?img=3" alt="Usuario" class="rounded-full">
+            <div class="flex-1 relative">
+              <input type="text" placeholder="Escribe un comentario..." 
+                     class="w-full bg-gray-100 rounded-full py-2 px-4 pr-10 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+              <div class="absolute right-3 top-2 text-gray-400">
+                <i class="far fa-smile"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div id="comment-list-1" class="space-y-3">
+            <!-- Comentarios aparecerán aquí -->
+          </div>
+        </div>
+      </article>
 
-    `;
+      <article class="bg-white rounded-xl shadow-md p-4 mb-6 fade-in">
+        <div class="flex items-start justify-between mb-3">
+          <div class="flex items-center space-x-3">
+            <img src="https://i.pravatar.cc/40?img=5" alt="Usuario" class="rounded-full">
+            <div>
+              <h3 class="font-bold">Ana IPN</h3>
+              <p class="text-gray-500 text-sm">Hace 5 horas · <i class="fas fa-user-friends text-gray-400"></i></p>
+            </div>
+          </div>
+          <button class="text-gray-400 hover:text-gray-600">
+            <i class="fas fa-ellipsis-h"></i>
+          </button>
+        </div>
+        
+        <p class="mb-4">Orgullosa de pertenecer al Poli ❤️💛 Hoy presenté mi proyecto final de carrera y todo salió excelente. ¡Gracias a mis profesores y compañeros por el apoyo! #OrgulloPolitécnico #ESCOM</p>
+        
+        <div class="flex items-center justify-between text-gray-500 border-t border-b border-gray-200 py-2 mb-3">
+          <div class="flex items-center space-x-1">
+            <div class="flex items-center">
+              <div class="bg-blue-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">
+                <i class="fas fa-thumbs-up"></i>
+              </div>
+              <div class="bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs -ml-1">
+                <i class="fas fa-heart"></i>
+              </div>
+            </div>
+            <span class="text-sm" id="like-count-2">0</span>
+          </div>
+          <div class="text-sm">
+            <span id="comment-count-2">0</span> comentarios
+          </div>
+        </div>
+        
+        <div class="flex justify-between space-x-2">
+          <button onclick="likePost('2')" class="flex-1 flex items-center justify-center space-x-2 text-gray-600 hover:bg-gray-100 py-1 rounded-lg transition">
+            <i class="fas fa-thumbs-up"></i>
+            <span>Me gusta</span>
+          </button>
+          <button onclick="toggleComments('2')" class="flex-1 flex items-center justify-center space-x-2 text-gray-600 hover:bg-gray-100 py-1 rounded-lg transition">
+            <i class="fas fa-comment"></i>
+            <span>Comentar</span>
+          </button>
+          <button class="flex-1 flex items-center justify-center space-x-2 text-gray-600 hover:bg-gray-100 py-1 rounded-lg transition">
+            <i class="fas fa-share"></i>
+            <span>Compartir</span>
+          </button>
+        </div>
+        
+        <div id="comments-2" class="mt-4 hidden">
+          <div class="flex items-center space-x-3 mb-4">
+            <img src="https://i.pravatar.cc/32?img=3" alt="Usuario" class="rounded-full">
+            <div class="flex-1 relative">
+              <input type="text" placeholder="Escribe un comentario..." 
+                     class="w-full bg-gray-100 rounded-full py-2 px-4 pr-10 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+              <div class="absolute right-3 top-2 text-gray-400">
+                <i class="far fa-smile"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div id="comment-list-2" class="space-y-3">
+            <!-- Comentarios aparecerán aquí -->
+          </div>
+        </div>
+      </article>
 
-    container.innerHTML = postHTML + container.innerHTML;
+      <article class="bg-white rounded-xl shadow-md p-4 mb-6 fade-in">
+        <div class="flex items-start justify-between mb-3">
+          <div class="flex items-center space-x-3">
+            <img src="https://i.pravatar.cc/40?img=9" alt="Usuario" class="rounded-full">
+            <div>
+              <h3 class="font-bold">Grupo de Estudio ESCOM</h3>
+              <p class="text-gray-500 text-sm">Ayer a las 18:30 · <i class="fas fa-users text-gray-400"></i></p>
+            </div>
+          </div>
+          <button class="text-gray-400 hover:text-gray-600">
+            <i class="fas fa-ellipsis-h"></i>
+          </button>
+        </div>
+        
+        <p class="mb-4">📢 ¡Atención estudiantes de ESCOM! Este sábado tendremos nuestra sesión de estudio para preparar el examen de Estructuras de Datos. Traigan sus dudas y material de estudio. ¡Nos vemos en la biblioteca a las 10 am! #ESCOM #IPN</p>
+        
+        <div class="bg-gray-100 rounded-lg p-4 mb-3">
+          <div class="flex items-center space-x-3">
+            <div class="bg-blue-100 text-blue-600 rounded-lg p-2">
+              <i class="fas fa-calendar-day text-xl"></i>
+            </div>
+            <div>
+              <h4 class="font-bold">Sesión de Estudio - Estructuras de Datos</h4>
+              <p class="text-sm text-gray-600">Sáb, 20 de mayo · 10:00 - 14:00</p>
+              <p class="text-sm text-gray-600">Biblioteca ESCOM, IPN</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-between text-gray-500 border-t border-b border-gray-200 py-2 mb-3">
+          <div class="flex items-center space-x-1">
+            <div class="flex items-center">
+              <div class="bg-blue-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs">
+                <i class="fas fa-thumbs-up"></i>
+              </div>
+            </div>
+            <span class="text-sm" id="like-count-3">0</span>
+          </div>
+          <div class="text-sm">
+            <span id="comment-count-3">0</span> comentarios
+          </div>
+        </div>
+        
+        <div class="flex justify-between space-x-2">
+          <button onclick="likePost('3')" class="flex-1 flex items-center justify-center space-x-2 text-gray-600 hover:bg-gray-100 py-1 rounded-lg transition">
+            <i class="fas fa-thumbs-up"></i>
+            <span>Me gusta</span>
+          </button>
+          <button onclick="toggleComments('3')" class="flex-1 flex items-center justify-center space-x-2 text-gray-600 hover:bg-gray-100 py-1 rounded-lg transition">
+            <i class="fas fa-comment"></i>
+            <span>Comentar</span>
+          </button>
+          <button class="flex-1 flex items-center justify-center space-x-2 text-gray-600 hover:bg-gray-100 py-1 rounded-lg transition">
+            <i class="fas fa-share"></i>
+            <span>Compartir</span>
+          </button>
+        </div>
+        
+        <div id="comments-3" class="mt-4 hidden">
+          <div class="flex items-center space-x-3 mb-4">
+            <img src="https://i.pravatar.cc/32?img=3" alt="Usuario" class="rounded-full">
+            <div class="flex-1 relative">
+              <input type="text" placeholder="Escribe un comentario..." 
+                     class="w-full bg-gray-100 rounded-full py-2 px-4 pr-10 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+              <div class="absolute right-3 top-2 text-gray-400">
+                <i class="far fa-smile"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div id="comment-list-3" class="space-y-3">
+            <!-- Comentarios aparecerán aquí -->
+          </div>
+        </div>
+      </article>
+    </main>
 
-    input.value = "";
-
-  } else {
-
-    alert("No puedes publicar un mensaje vacío.");
-
-  }
-
-}
-                              
+    <!-- Sidebar derecho -->
+    <aside class="w-full md:w-64 lg:w-72 mt-6 md:mt-0">
+      <div class="bg-white rounded-xl shadow-md p-4 sticky top-24">
+        <h3 class="font-bold text-lg mb-4">Eventos destacados</h3>
+        
+        <div class="space-y-4">
+          <div class="flex items-start space-x-3">
+            <img src="https://www.ipn.mx/assets/files/main/img/conocenos/conocenos-mision.jpg" 
+                 alt="Evento" class="w-16 h-16 rounded-lg object-cover">
+            <div>
+              <h4 class="font-medium">Feria de Ciencias 2023</h4>
+              <p class="text-sm text-gray-500">25 de mayo · CINVESTAV</p>
+              <button class="text-xs text-blue-500 hover:text-blue-700 mt-1">Interesado</button>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-3">
+            <img src="https://www.ipn.mx/assets/files/main/img/servicios/servicios-educacion.jpg" 
+                 alt="Evento" class="w-16 h-16 rounded-lg object-cover">
+            <div>
+              <h4 class="font-medium">Conferencia: IA en México</h4>
+              <p class="text-sm text-gray-500">30 de mayo · Auditorio ESCOM</p>
+              <button class="text-xs text-blue-500 hover:text-blue-700 mt-1">Interesado</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-6 pt-4 border-t border-gray-200">
+          <h3 class="font-bold text-lg mb-4">Contactos</h3>
+          
+          <div class="space-y-3">
+            <div class="flex items-center space-x-3">
+              <img src="https://i.pravatar.cc/40?img=7" alt="Contacto" class="rounded-full">
+              <div>
+                <h4 class="font-medium">María López</h4>
+                <p class="text-xs text-gray-500">ESCOM</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <img src="https://i.pravatar.cc/40?img=11" alt="Contacto" class="rounded-full">
+              <div>
+                <h4 class="font-medium">Pedro Sánchez</h4>
+                <p class="text-xs text-gray-500">ESIME</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <img src="https://i.pravatar.cc/40?img=15" alt="Contacto" class="rounded-full">
+              <div>
+                <h4 class="font-medium">Luisa Martínez</h4>
+                <p class="text-xs text-gray-500">CECyT 9</p>
+              </div>
+            </div>
+          </div>
+          
+          <button class="w-full mt-4 text-blue-500 hover:
